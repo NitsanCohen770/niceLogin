@@ -1,0 +1,23 @@
+.policy {
+  font-size: 0.5rem;
+}
+
+.login {
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: small;
+}
+
+.button {
+  background: none !important;
+  border: none;
+  padding: 0.5rem !important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
