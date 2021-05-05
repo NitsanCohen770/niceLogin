@@ -1,0 +1,9 @@
+.content {
+  justify-content: center;
+  padding-left: 55px;
+  padding-right: 55px;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}

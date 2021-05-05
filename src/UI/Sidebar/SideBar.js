@@ -1,21 +1,67 @@
 import React from 'react';
-import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
+import classes from './SideBar.module.css';
+import {
+  CDBSidebar,
+  CDBSidebarContent,
+  CDBSidebarFooter,
+  CDBSidebarHeader,
+  CDBSidebarMenu,
+  CDBSidebarMenuItem,
+} from 'cdbreact';
+import { NavLink } from 'react-router-dom';
 
-const SideBar = () => {
+const Sidebar = () => {
   return (
-    <ProSidebar>
-      <Menu iconShape="square">
-        <MenuItem>Dashboard</MenuItem>
-        <SubMenu title="Components">
-          <MenuItem>Component 1</MenuItem>
-          <MenuItem>Component 2</MenuItem>
-        </SubMenu>
-      </Menu>
-    </ProSidebar>
+    <div
+      className={classes.example}
+      style={{
+        width: '100px',
+        display: 'flex',
+        height: '100vh',
+      }}
+    >
+      <CDBSidebar textColor="#fff" backgroundColor="#333">
+        <CDBSidebarHeader prefix={<i className="fa fa-bars fa-large"></i>}>
+          <a
+            href="/"
+            className="text-decoration-none"
+            style={{ color: 'inherit' }}
+          >
+            My Todo App
+          </a>
+        </CDBSidebarHeader>
+
+        <CDBSidebarContent className="sidebar-content">
+          <CDBSidebarMenu>
+            <NavLink exact to="/" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/tables" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="table">Tables</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/profile" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="user">Profile page</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/analytics" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="chart-line">
+                Analytics
+              </CDBSidebarMenuItem>
+            </NavLink>
+          </CDBSidebarMenu>
+        </CDBSidebarContent>
+
+        <CDBSidebarFooter style={{ textAlign: 'center' }}>
+          <div
+            style={{
+              padding: '20px 5px',
+            }}
+          >
+            Hello Guest, Welcome back!
+          </div>
+        </CDBSidebarFooter>
+      </CDBSidebar>
+    </div>
   );
 };
 
-SideBar.propTypes = {};
-
-export default SideBar;
+export default Sidebar;

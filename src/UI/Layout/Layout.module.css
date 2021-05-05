@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  position: relative;
+}
+
+.todo-list__container {
+  margin-left: 150px;
+  margin-right: 20px;
+  width: 100%;
+  padding-top: 80px;
+}
+
+@media (max-width: 600px) {
+  .todo-list__container {
+    margin: auto;
+  }
+}

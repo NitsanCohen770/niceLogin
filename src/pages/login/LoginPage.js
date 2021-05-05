@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import '../../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 import LoginForm from '../../Login/LoginForm';
 import classes from './LoginPage.module.css';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, Container, Row} from 'react-bootstrap';
 
 const LoginPage = () => {
   return (

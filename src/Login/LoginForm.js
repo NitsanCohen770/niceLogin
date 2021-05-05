@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import classes from './LoginForm.module.css';
 import {
   Form,
@@ -13,12 +14,25 @@ import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
 const LoginForm = () => {
   const [toggleLogin, setToggleLogin] = useState(false);
-  console.log(toggleLogin);
+  const [inputEmail, setInputEmail] = useState('');
+  const [inputPassword, setInputPassword] = useState('');
+  const [signup, setSignup] = useState(false);
+
   const toggleLoginHandler = () => {
     setToggleLogin(prevState => !prevState);
   };
+
+  const submitFormHandler = event => {
+    event.preventDefault();
+    if (inputPassword) {
+      console.log('hello');
+    } else {
+      
+      setSignup(true);
+    }
+  };
   return (
-    <Form>
+    <Form onSubmit={submitFormHandler}>
       <Container className="d-flex ">
         <Row className="m-auto align-self-center">
           <ButtonToolbar>
@@ -54,7 +68,12 @@ const LoginForm = () => {
       </Row>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control
+          type="email"
+          placeholder="Enter email"
+          onChange={event => setInputEmail(event.target.value)}
+          value={inputEmail}
+        />
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -62,7 +81,12 @@ const LoginForm = () => {
       {toggleLogin && (
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            onChange={event => setInputPassword(event.target.value)}
+            value={inputPassword}
+          />
         </Form.Group>
       )}
       <Container className="d-flex ">
@@ -74,8 +98,8 @@ const LoginForm = () => {
       </Container>
       <Col>
         <span className={classes.policy}>
-          By continuing with Google, Apple, or Email, you agree to our Terms of
-          Service and Privacy Policy.
+          By continuing with Google, LinkedIn, or Email, you agree to our Terms
+          of Service and Privacy Policy.
         </span>
       </Col>
       <Col>
@@ -93,6 +117,7 @@ const LoginForm = () => {
           </button>
         </span>
       </Col>
+      {signup && <Redirect to="/signup" />}
     </Form>
   );
 };
