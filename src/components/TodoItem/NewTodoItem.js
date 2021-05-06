@@ -16,7 +16,7 @@ const TodoItem = ({ priority }) => {
   };
   return (
     <ListGroup.Item variant={priority}>
-      <Form inline className="auto">
+      <Form inline className="auto" onSubmit={addTodoHandler}>
         <Row>
           <Col>
             <FormControl

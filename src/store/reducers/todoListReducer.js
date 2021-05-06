@@ -16,6 +16,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         todoList: state.todoList.filter(({ id }) => id !== action.toDoId),
       };
+    case actionTypes.TODO_EDIT:
+      return {
+        ...state,
+        todoList: state.todoList.filter(({ id }) => id === action.toDoId),
+      };
     default:
       return state;
   }

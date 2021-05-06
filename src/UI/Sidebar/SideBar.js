@@ -9,8 +9,10 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Sidebar = () => {
+  const userName = useSelector(state => state.auth.email);
   return (
     <div
       className={classes.example}
@@ -56,7 +58,7 @@ const Sidebar = () => {
               padding: '20px 5px',
             }}
           >
-            Hello Guest, Welcome back!
+            Hello {userName}, Welcome back!
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
