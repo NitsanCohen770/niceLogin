@@ -2,6 +2,8 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
   todoList: [],
+  input: null,
+  priority: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -20,6 +22,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         todoList: state.todoList.filter(({ id }) => id === action.toDoId),
+      };
+    case actionTypes.GET_TODO_LIST:
+      return {
+        ...state,
+        todoList: action.todoData,
       };
     default:
       return state;

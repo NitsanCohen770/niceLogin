@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Tooltip, IconButton } from '@material-ui/core';
 import { ListGroup, Form, FormControl, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faRunning } from '@fortawesome/free-solid-svg-icons';
@@ -10,8 +11,15 @@ const TodoItem = ({ priority }) => {
   const [todoInput, setTodoInput] = useState('');
   const dispatch = useDispatch();
   const addTodoHandler = () => {
+    if (!todoInput) {
+      return;
+    }
     dispatch(
-      actions.onAddedTodo({ text: todoInput, priority: 'danger', id: nanoid() })
+      actions.onAddedTodo({
+        input: todoInput,
+        priority: 'danger',
+        id: nanoid(),
+      })
     );
   };
   return (
@@ -20,6 +28,7 @@ const TodoItem = ({ priority }) => {
         <Row>
           <Col>
             <FormControl
+              required
               type="text"
               placeholder="Add Task"
               className="mr-sm-"
@@ -28,11 +37,18 @@ const TodoItem = ({ priority }) => {
             />{' '}
           </Col>
           <Col>
-            <FontAwesomeIcon icon={faPlus} onClick={addTodoHandler} />
+            <Tooltip title="Add Todo">
+              <IconButton aria-label="add">
+                <FontAwesomeIcon icon={faPlus} onClick={addTodoHandler} />
+              </IconButton>
+            </Tooltip>
           </Col>
           <Col>
-            {' '}
-            <FontAwesomeIcon icon={faRunning} />
+            <Tooltip title="Toggle priority">
+              <IconButton aria-label="priority">
+                <FontAwesomeIcon icon={faRunning} onMouseEnter />
+              </IconButton>
+            </Tooltip>
           </Col>
         </Row>
       </Form>

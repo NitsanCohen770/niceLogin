@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ListGroup, Card } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import NewTodoItem from '../TodoItem/NewTodoItem';
 import ToDoListItem from '../TodoItem/ToDoListItem';
 import { nanoid } from 'nanoid';
-
+import * as actions from '../../store/actions/';
 const TodoList = ({ edit, className }) => {
+  const dispatch = useDispatch();
   const toDoData = useSelector(state => state.todoList.todoList);
-  console.log(toDoData);
+  useEffect(() => {
+    dispatch(actions.fetchTodos());
+  }, [dispatch]);
+
   const toDoList = toDoData.map(toDoItem => {
     return (
       <ToDoListItem
-        text={toDoItem.text}
+        input={toDoItem.input}
         priority={toDoItem.priority}
         key={nanoid()}
         id={toDoItem.id}

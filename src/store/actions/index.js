@@ -1,4 +1,9 @@
-export { onAddedTodo, onDeletedTodo, onEditTodo } from './todoListActions';
+export {
+  onAddedTodo,
+  onDeletedTodo,
+  onEditTodo,
+  fetchTodos,
+} from './todoListActions';
 
 export {
   onSignupInit,

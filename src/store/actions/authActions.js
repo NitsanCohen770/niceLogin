@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes';
 
-
 export const onSignupInit = email => {
   return {
     type: actionTypes.SIGNUP_INIT,

@@ -108,8 +108,7 @@ const Signup = () => {
                       <label for="inputAddress">Address</label>
                       <input
                         {...register('address', {
-                          required: true,
-                          minLength: 8,
+                          required: false,
                         })}
                         type="text"
                         className="form-control"

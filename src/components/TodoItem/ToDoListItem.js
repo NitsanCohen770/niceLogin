@@ -1,10 +1,11 @@
 import React from 'react';
 import { ListGroup, Form, FormControl, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Tooltip, IconButton } from '@material-ui/core';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../store/actions';
-const ToDoListItem = ({ text, priority, id }) => {
+const ToDoListItem = ({ input, priority, id }) => {
   const dispatch = useDispatch();
   const editTodoHandler = () => {};
   const deleteToDoHandler = () => {
@@ -15,14 +16,26 @@ const ToDoListItem = ({ text, priority, id }) => {
       <Form inline className="auto">
         <Row>
           <Col>
-            <FormControl type="text" className="mr-sm-" readOnly value={text} />
+            <FormControl
+              type="text"
+              className="mr-sm-"
+              readOnly
+              value={input}
+            />
           </Col>
           <Col>
-            <FontAwesomeIcon icon={faEdit} onClick={editTodoHandler} />
+            <Tooltip title="Edit">
+              <IconButton aria-label="edit">
+                <FontAwesomeIcon icon={faEdit} onClick={editTodoHandler} />{' '}
+              </IconButton>
+            </Tooltip>
           </Col>
           <Col>
-            {' '}
-            <FontAwesomeIcon icon={faTrash} onClick={deleteToDoHandler} />
+            <Tooltip title="Delete Item">
+              <IconButton aria-label="delete">
+                <FontAwesomeIcon icon={faTrash} onClick={deleteToDoHandler} />
+              </IconButton>
+            </Tooltip>
           </Col>
         </Row>
       </Form>
