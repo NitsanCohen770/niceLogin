@@ -22,16 +22,12 @@ const TodoList = ({ edit, className }) => {
       />
     );
   });
-  const currentDate =
-    new Date().getDay().toString() +
-    '/' +
-    new Date().getMonth().toString() +
-    '/' +
-    new Date().getFullYear().toString();
+  const today = new Date().toLocaleDateString();
+
   return (
     <Card className={className}>
       <Card.Body>
-        {edit && <h3>Today {currentDate}</h3>}
+        {edit && <h3>Today {today}</h3>}
         <ListGroup>
           {edit && <NewTodoItem priority={'success'} />} {!edit && toDoList}
         </ListGroup>
