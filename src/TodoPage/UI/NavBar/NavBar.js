@@ -16,7 +16,7 @@ import {
   faEject,
 } from '@fortawesome/free-solid-svg-icons';
 import { LinkContainer } from 'react-router-bootstrap';
-import * as actions from '../../store/actions';
+import * as actions from '../../../store/actions';
 import { useDispatch } from 'react-redux';
 
 const NavBar = () => {

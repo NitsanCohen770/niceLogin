@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Tooltip, IconButton } from '@material-ui/core';
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
-import * as actions from '../../store/actions';
+import * as actions from '../../../store/actions';
 const ToDoListItem = ({ input, priority, id }) => {
   const dispatch = useDispatch();
   const editTodoHandler = () => {};

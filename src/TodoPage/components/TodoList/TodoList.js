@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NewTodoItem from '../TodoItem/NewTodoItem';
 import ToDoListItem from '../TodoItem/ToDoListItem';
 import { nanoid } from 'nanoid';
-import * as actions from '../../store/actions/';
+import * as actions from '../../../store/actions/';
 const TodoList = ({ edit, className }) => {
   const dispatch = useDispatch();
   const toDoData = useSelector(state => state.todoList.todoList);

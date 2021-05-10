@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
-import FormError from '../../UI/FormError/FormError';
+import FormError from './UI/FormError/FormError';
 import classes from './Signup.module.css';
 import { Fade } from '@material-ui/core';
 import ClipLoader from 'react-spinners/ClipLoader';
-import * as actions from '../../store/actions';
+import * as actions from '../store/actions';
 import axios from 'axios';
 import { Redirect } from 'react-router';
 

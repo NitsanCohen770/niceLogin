@@ -4,7 +4,7 @@ import { Tooltip, IconButton } from '@material-ui/core';
 import { ListGroup, Form, FormControl, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faRunning } from '@fortawesome/free-solid-svg-icons';
-import * as actions from '../../store/actions';
+import * as actions from '../../../store/actions';
 import { nanoid } from 'nanoid';
 
 const TodoItem = ({ priority }) => {
@@ -46,7 +46,7 @@ const TodoItem = ({ priority }) => {
           <Col>
             <Tooltip title="Toggle priority">
               <IconButton aria-label="priority">
-                <FontAwesomeIcon icon={faRunning} onMouseEnter />
+                <FontAwesomeIcon icon={faRunning} />
               </IconButton>
             </Tooltip>
           </Col>
