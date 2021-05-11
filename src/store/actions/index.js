@@ -3,6 +3,7 @@ export {
   onDeletedTodo,
   onEditTodo,
   fetchTodos,
+  inputChanged,
 } from './todoListActions';
 
 export {

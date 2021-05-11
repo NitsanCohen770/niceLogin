@@ -1,11 +1,17 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render } from 'react-testing-library';
+
 import NewTodoItem from './NewTodoItem';
 
-describe('NewTodoItem tests')
-render(<NewTodoItem />);
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 
-test('sd', () => {
- 
-  const priorityTooltip = screen.getAllByAltText(/Toggle priority/i);
-  expect(priorityTooltip).to();
+describe('With React Testing Library', () => {
+
+    test('renders learn react link', () => {
+      render(<<App />);
+      const linkElement = screen.getByText(/learn react/i);
+      expect(linkElement).toBeInTheDocument();
+    });
+    
 });

@@ -8,15 +8,15 @@ import * as actions from '../../../store/actions';
 import { nanoid } from 'nanoid';
 
 const TodoItem = ({ priority }) => {
-  const [todoInput, setTodoInput] = useState('');
+  const input = useSelector(state => state.todoList.input);
   const dispatch = useDispatch();
   const addTodoHandler = () => {
-    if (!todoInput) {
+    if (!input) {
       return;
     }
     dispatch(
       actions.onAddedTodo({
-        input: todoInput,
+        input: input,
         priority: 'danger',
         id: nanoid(),
       })
@@ -32,8 +32,10 @@ const TodoItem = ({ priority }) => {
               type="text"
               placeholder="Add Task"
               className="mr-sm-"
-              onChange={event => setTodoInput(event.target.value)}
-              value={todoInput}
+              onChange={event =>
+                dispatch(actions.inputChanged(event.target.value))
+              }
+              value={input}
             />{' '}
           </Col>
           <Col>

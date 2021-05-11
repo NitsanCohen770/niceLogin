@@ -5,6 +5,7 @@ import NewTodoItem from '../TodoItem/NewTodoItem';
 import ToDoListItem from '../TodoItem/ToDoListItem';
 import { nanoid } from 'nanoid';
 import * as actions from '../../../store/actions/';
+import TodoItem from '../TodoItem/NewTodoItem';
 const TodoList = ({ edit, className }) => {
   const dispatch = useDispatch();
   const toDoData = useSelector(state => state.todoList.todoList);
@@ -19,6 +20,7 @@ const TodoList = ({ edit, className }) => {
         priority={toDoItem.priority}
         key={nanoid()}
         id={toDoItem.id}
+        checked={false}
       />
     );
   });
