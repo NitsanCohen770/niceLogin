@@ -12,13 +12,15 @@ export const inputChanged = (input, priority) => {
 export const onAddedTodo = newToDo => {
   return (dispatch, getState) => {
     const userId = getState().auth.userId;
-
+    const editedTodoId = getState().todoList.editedId;
+    console.log(editedTodoId);
     axios
       .post('http://localhost:3003/addtodo', {
         input: newToDo.input,
         priority: newToDo.priority,
         id: newToDo.id,
         userId,
+        editedTodoId,
       })
       .then(response => {
         dispatch(onCompletedAdded(newToDo));

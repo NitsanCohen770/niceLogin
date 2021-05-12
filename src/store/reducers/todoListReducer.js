@@ -18,6 +18,7 @@ const reducer = (state = initialState, action) => {
           ...state.todoList,
           (state.todoList[editedIndex].input = state.input),
         ];
+        console.log(updatedTodoList);
         return {
           ...state,
           todoList: updatedTodoList,

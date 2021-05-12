@@ -18,9 +18,9 @@ const TodoList = ({ edit, className }) => {
       <ToDoListItem
         input={toDoItem.input}
         priority={toDoItem.priority}
-        key={nanoid()}
+        key={toDoItem.id}
         id={toDoItem.id}
-        checked={false}
+        checked={true}
       />
     );
   });
